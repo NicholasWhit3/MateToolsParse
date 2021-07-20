@@ -5,10 +5,11 @@ using System.Text;
 
 namespace MateToolsParse
 {
-    class Interface : MateToolsParse
+    class Interface : WikiInfoParse
     {
         private string _question;
         private string _slashes = "#######################################";
+        private string _fileFormat = ".txt";
 
         public string UserInputQuestion()
         {
@@ -20,13 +21,14 @@ namespace MateToolsParse
         public void SavingForDB()
         {
             File.WriteAllText("DB_File.txt", _slashes + "\n" + Noun +"("
-                + InfinitiveVerbForm +", ?)" + "\n" + _question + "\n" + _slashes);
+                + InfinitiveVerbForm +", ?)" + "\n" + _question + "\n" + StrippedStringSource +"\n" + _slashes);
         }
         
         public void ApplicationRun()
         {
             MateTableOpen(UserInputQuestion());
             GettingTableInfo();
+            SourceTextParse();
             SavingForDB();
         }
     }

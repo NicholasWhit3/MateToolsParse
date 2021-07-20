@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace MateToolsParse
 {
-    class MateToolsParse : Program
+    class MateToolsParse 
     {
         private IWebDriver driver;
         private IWebElement _tableElements;
